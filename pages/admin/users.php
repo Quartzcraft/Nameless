@@ -30,11 +30,11 @@ $adm_page = "users";
 // Custom usernames?
 $displaynames = $queries->getWhere("settings", array("name", "=", "displaynames"));
 $displaynames = $displaynames[0]->value;
-		
+
 // Is UUID linking enabled?
 $uuid_linking = $queries->getWhere('settings', array('name', '=', 'uuid_linking'));
 $uuid_linking = $uuid_linking[0]->value;
-			  
+
 require('core/includes/password.php'); // Password compat library
 require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifier
 
@@ -183,12 +183,12 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 								if($displaynames == "true"){
 									$to_validation['mcname'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20
 									);
 									$to_validation['username'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20,
 										'unique' => 'users'
 									);
@@ -196,7 +196,7 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 								} else {
 									$to_validation['username'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20,
 										'unique' => 'users'
 									);
@@ -206,12 +206,12 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 								if($displaynames == "true"){
 									$to_validation['mcname'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20
 									);
 									$to_validation['username'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20,
 										'unique' => 'users'
 									);
@@ -219,7 +219,7 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 								} else {
 									$to_validation['username'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20,
 										'unique' => 'users'
 									);
@@ -469,19 +469,19 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 									if($displaynames == "true"){
 										$to_validation['MCUsername'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$to_validation['username'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$mcname = htmlspecialchars(Input::get('MCUsername'));
 									} else {
 										$to_validation['username'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$mcname = htmlspecialchars(Input::get('username'));
@@ -490,19 +490,19 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 									if($displaynames == "true"){
 										$to_validation['MCUsername'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$to_validation['username'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$mcname = htmlspecialchars(Input::get('MCUsername'));
 									} else {
 										$to_validation['username'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$mcname = htmlspecialchars(Input::get('username'));
@@ -726,6 +726,7 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 							</select> 
 						  </div>
 						  <?php if($_GET['user'] == 1){ ?>
+						  <input type="hidden" name="group" value="2">
 						  <div class="alert alert-warning">
 						    <?php echo $admin_language['cant_modify_root_user']; ?>
 						  </div>

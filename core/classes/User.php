@@ -476,7 +476,7 @@ class User {
 			$return = array(); // Array to return containing info of PMs
 			
 			// First, get a list of PMs the user has created themselves
-			$data = $this->_db->orderWhere('private_messages', 'author_id = ' . $user_id, 'sent_date', 'DESC');
+			$data = $this->_db->orderWhere('private_messages', 'author_id = ' . $user_id, 'updated', 'DESC');
 			
 			if($data->count()){
 				$data = $data->results();
@@ -491,7 +491,7 @@ class User {
 					
 					$return[$result->id]['id'] = $result->id;
 					$return[$result->id]['title'] = $result->title;
-					$return[$result->id]['date'] = $result->sent_date;
+					$return[$result->id]['date'] = $result->updated;
 					$return[$result->id]['users'] = $users;
 				}
 			}
@@ -517,14 +517,14 @@ class User {
 					
 					$return[$pm->id]['id'] = $pm->id;
 					$return[$pm->id]['title'] = $pm->title;
-					$return[$pm->id]['date'] = $pm->sent_date;
+					$return[$pm->id]['date'] = $pm->updated;
 					$return[$pm->id]['users'] = $users;
 				}
 			}
-			
+
 			// Order the PMs by date - most recent first
 			usort($return, function($a, $b) {
-				return strtotime($b['date']) - strtotime($a['date']);
+				return $b['date'] - $a['date'];
 			});
 			
 			return $return;
@@ -559,6 +559,20 @@ class User {
 						$this->_db->update('private_messages_users', $pm_user_id, array(
 							'`read`' => 1
 						));
+					}
+				} else {
+					// Check if the PM is read or not for the author
+					$is_read = $this->_db->get('private_messages_users', array('pm_id', '=', $pm_id))->results();
+					
+					foreach($is_read as $item){
+						if($item->user_id == $data->author_id){
+							if($item->read == 0){
+								$this->_db->update('private_messages_users', $item->id, array(
+									'`read`' => 1
+								));
+							}
+							break;
+						}
 					}
 				}
 				// User has permission, return the PM information
@@ -713,5 +727,29 @@ class User {
 			}
 		}
 		return false;
+	}
+	
+	// Can the current user view a custom page?
+	public function canViewPage($page_id){
+		if($this->_isLoggedIn){
+			$group_id = $this->data()->group_id;
+		} else {
+			// Guest
+			$group_id = 0;
+		}
+		
+		// Check the database
+		$permissions = $this->_db->get('custom_pages_permissions', array('page_id', '=', $page_id));
+		$permissions = $permissions->results();
+		if(count($permissions)){
+			foreach($permissions as $permission){
+				if($permission->group_id == $group_id && $permission->view == 1){
+					$can_view = 1;
+					break;
+				}
+			}
+		}
+		
+		return isset($can_view);
 	}
 }

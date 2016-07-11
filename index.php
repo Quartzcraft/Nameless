@@ -88,6 +88,14 @@ if(is_file($page_path)){
 				die();
 			}
 			
+			// API?
+			if($directories[1] == 'api'){
+				if(is_file('pages' . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . $directories[2] . DIRECTORY_SEPARATOR . 'index.php')){
+					require('pages' . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . $directories[2] . DIRECTORY_SEPARATOR . 'index.php');
+					die();
+				}
+			}
+			
 			// Custom page?
 			$page_path = explode('/', $page_path);
 			
@@ -96,6 +104,9 @@ if(is_file($page_path)){
 			if(count($custom_pages)){
 				$page_title = $custom_pages[0]->title;
 				$page_content = $custom_pages[0]->content;
+				$page_id = $custom_pages[0]->id;
+				
+				if($custom_pages[0]->redirect == 1) $redirect_page = htmlspecialchars($custom_pages[0]->link);
 				
 				// For navbar
 				$page = $custom_pages[0]->title;
@@ -113,6 +124,9 @@ if(is_file($page_path)){
 			if(count($custom_pages)){
 				$page_title = $custom_pages[0]->title;
 				$page_content = $custom_pages[0]->content;
+				$page_id = $custom_pages[0]->id;
+				
+				if($custom_pages[0]->redirect == 1) $redirect_page = htmlspecialchars($custom_pages[0]->link);
 				
 				// For navbar
 				$page = $custom_pages[0]->title;

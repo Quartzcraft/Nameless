@@ -67,6 +67,8 @@ $admin_language = array(
 	'use_gmail_help' => 'Diese Funktion ist nur möglich, wenn die PHP mail() Funktion deaktiviert ist. Wenn du nicht GoogleMail verwendest, wird SMTP verwendet. Beide Wege müssen manuell in core/mail.php gesetzt werden.',
 	'enable_mail_verification' => 'Enable email account verification?',
 	'enable_email_verification_help' => 'Having this enabled will ask newly registered users to verify their account via email before completing registration.',
+	'explain_email_settings' => 'The following is required if the "Use PHP mail() function" option is <strong>disabled</strong>. You can find documentation on these settings <a href="https://github.com/NamelessMC/Nameless/wiki/Setting-up-Gmail-or-SMTP-with-Nameless" target="_blank">on our wiki</a>.',
+	'email_config_not_writable' => 'Your <strong>core/email.php</strong> file is not writable. Please check file permissions.',
 	'pages' => 'Pages',
 	'enable_or_disable_pages' => 'Enable or disable pages here.',
 	'enable' => 'Enable',
@@ -138,6 +140,10 @@ $admin_language = array(
 	'page_link_more' => 'Navigationsleiste -> "Mehr" Menü',
 	'page_link_footer' => 'Fußleiste',
 	'page_link_none' => 'Kein Seitenlink',
+	'page_permissions' => 'Page Permissions',
+	'can_view_page' => 'Can view page:',
+	'redirect_page' => 'Redirect page?',
+	'redirect_link' => 'Redirect link',
 
 	// Admin forum page
 	'labels' => 'Themen Label',
@@ -180,6 +186,8 @@ $admin_language = array(
 	'forum_description_minimum' => 'The forum description must be a minimum of 2 characters.',
 	'forum_name_maximum' => 'The forum name must be a maximum of 150 characters.',
 	'forum_description_maximum' => 'The forum description must be a maximum of 255 characters.',
+	'forum_type_forum' => 'Discussion Forum',
+	'forum_type_category' => 'Category',
 
 	// Admin Users and Groups page
 	'users' => 'Benutzer',
@@ -590,6 +598,7 @@ $general_language = array(
 	// Homepage
 	'news' => 'Neues',
 	'social' => 'Soziales',
+	'join' => 'Join',
 
 	// General terms
 	'submit' => 'Absenden',
@@ -718,7 +727,12 @@ $forum_language = array(
 	'no_users_online' => 'Es sind keine Benutzer online.',
 	
 	// Search
-	'search_error' => 'Die Suchanfrage muss zwischen 1 und 32 Zeichen lang sein.'
+	'search_error' => 'Die Suchanfrage muss zwischen 1 und 32 Zeichen lang sein.',
+	
+	//Share on a social-media.
+	'sm-share' => 'Aktie',
+	'sm-share-facebook' => 'Auf Facebook teilen',
+	'sm-share-twitter' => 'Auf Twitter teilen',
 );
 
 /*
@@ -777,6 +791,13 @@ $table_language = array(
 	'page_x_of_y' => 'Zeige Seite _PAGE_ von _PAGES_', // Don't replace "_PAGE_" or "_PAGES_"
 	'no_records' => 'Keine Einträge',
 	'filtered' => '(gefiltert aus _MAX_ Einträgen)' // Don't replace "_MAX_"
+);
+
+/*
+ *  API language
+ */
+$api_language = array(
+	'register' => 'Complete Registration'
 );
 
 ?>
