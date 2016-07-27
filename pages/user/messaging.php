@@ -102,7 +102,6 @@ if(Input::exists()){
 						$queries->create('private_messages', array(
 							'author_id' => $user->data()->id,
 							'title' => $title,
-							'sent_date' => date('Y-m-d H:i:s'),
 							'updated' => date('U')
 						));
 						
@@ -130,19 +129,40 @@ if(Input::exists()){
 							$user_id = $user->NameToId($item);
 							
 							if($user_id){
-								if($user_id !== $user->data()->id){
-									// Not the author
-									$queries->create("private_messages_users", array(
-										'pm_id' => $last_id,
-										'user_id' => $user_id
-									));
-								} else {
-									// Is the author, automatically set as read
-									$queries->create("private_messages_users", array(
-										'pm_id' => $last_id,
-										'user_id' => $user_id,
-										'read' => 1
-									));
+								// Not the author
+								$queries->create("private_messages_users", array(
+									'pm_id' => $last_id,
+									'user_id' => $user_id
+								));
+							}
+						}
+						
+						// Add the author to the list of users
+						$queries->create('private_messages_users', array(
+							'pm_id' => $last_id,
+							'user_id' => $user->data()->id,
+							'read' => 1
+						));
+						
+					} else {	
+						// Loop through the users and set the conversation as unread
+						foreach($users as $item){
+							if($item !== $user->data()->id){
+								// Not the reply author
+								// Get the private messages users entry ID
+								$pm_users_ids = $queries->getWhere('private_messages_users', array('pm_id', '=', $last_id));
+
+								foreach($pm_users_ids as $pm_users_id){	
+									if($pm_users_id->user_id == $item){
+										$pm_users_id = $pm_users_id->id;
+										
+										// Update the message to unread
+										$queries->update("private_messages_users", $pm_users_id, array(
+											'`read`' => 0
+										));
+										
+										break;
+									}
 								}
 							}
 						}
@@ -249,7 +269,7 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 				<div class="row">
 				  <div class="col-md-3"><a href="/user/messaging/?mid=<?php echo $pm['id']; ?>"><?php echo $pm['title']; ?></a></div>
 				  <div class="col-md-5"><?php echo $user_string; ?></div>
-				  <div class="col-md-4"><?php echo date('d M Y, H:i', strtotime($pm['date'])); ?></div>
+				  <div class="col-md-4"><?php echo date('d M Y, H:i', $pm['date']); ?></div>
 				</div>
 				<?php 
 				} 
@@ -362,35 +382,6 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 		  <h4><?php echo $pm[0]->title; ?></h4>
 		  <?php echo $user_string; ?>
 		  <br /><br />
-		  <div class="panel panel-primary">
-		    <div class="panel-heading">
-			  <?php 
-			  if($pm[0]->author_id != 0){
-				echo '<a class="white-text" href="/profile/' . htmlspecialchars($user->idToMCName($pm[0]->author_id)) . '">' . htmlspecialchars($user->idToName($pm[0]->author_id)) . '</a>'; 
-			  } else {
-				echo '<span class="white-text">' . $user_language['system'] . '</span>';
-			  }
-			  ?>
-			  <span class="pull-right"><?php echo date('d M Y, H:i', strtotime($pm[0]->sent_date)); ?></span>
-			</div>
-			<div class="panel-body">
-			  <?php
-				$config = HTMLPurifier_Config::createDefault();
-				$config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
-				$config->set('URI.DisableExternalResources', false);
-				$config->set('URI.DisableResources', false);
-				$config->set('HTML.Allowed', 'u,p,a,b,i,small,blockquote,span[style],span[class],p,strong,em,li,ul,ol,div[align],br,img');
-				$config->set('CSS.AllowedProperties', array('float', 'color','background-color', 'background', 'font-size', 'font-family', 'text-decoration', 'font-weight', 'font-style', 'font-size'));
-				$config->set('HTML.AllowedAttributes', 'src, href, height, width, alt, class, *.style');
-				$purifier = new HTMLPurifier($config);
-				
-				echo $purifier->purify(htmlspecialchars_decode($pm_replies[0]->content));
-				
-				unset($pm_replies[0]);
-			  ?>
-			</div>
-		  </div>
-		  
 		  <?php
 		  foreach($pm_replies as $reply){
 		      ?>

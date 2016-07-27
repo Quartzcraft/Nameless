@@ -7,7 +7,7 @@
  */
 
 // Donation addon page
-$page = $donate_language['donate']; // for navbar
+$page = $donate_language['donate_icon'] . $donate_language['donate']; // for navbar
 
 // Ensure the addon is enabled
 if(!in_array('Donate', $enabled_addon_pages)){
@@ -27,6 +27,7 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Donation page for the <?php echo $sitename; ?> community">
     <meta name="author" content="Samerton">
+    <meta name="theme-color" content="#454545" />
 	<?php if(isset($custom_meta)){ echo $custom_meta; } ?>
 	
 	<?php
@@ -80,6 +81,8 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php');
 				$currency = '£';
 			} else if($currency[0]->value == "2"){
 				$currency = '€';
+			} else if($currency[0]->value == "3"){
+				$currency = 'R$';
 			}
 			
 			$latest_donors_string = '';

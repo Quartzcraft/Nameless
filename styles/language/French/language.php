@@ -67,6 +67,8 @@ $admin_language = array(
 	'use_gmail_help' => 'Uniquement disponible si la fonction PHP mail est désactivée. If you choose not to use Gmail, SMTP will be used. Either way, this will need configuring in core/email.php.',
 	'enable_mail_verification' => 'Activer la vérification des comptes par adresse mail ?',
 	'enable_email_verification_help' => 'Activer cela demandera aux nouveaux utilisateurs de vérifier leur compte par mail avant de compléter leur enregistrement.',
+	'explain_email_settings' => 'The following is required if the "Use PHP mail() function" option is <strong>disabled</strong>. You can find documentation on these settings <a href="https://github.com/NamelessMC/Nameless/wiki/Setting-up-Gmail-or-SMTP-with-Nameless" target="_blank">on our wiki</a>.',
+	'email_config_not_writable' => 'Your <strong>core/email.php</strong> file is not writable. Please check file permissions.',
 	'pages' => 'Pages',
 	'enable_or_disable_pages' => 'Activer ou désactiver des pages ici.',
 	'enable' => 'Activer',
@@ -138,6 +140,10 @@ $admin_language = array(
 	'page_link_more' => 'Menu déroulant "Plus"',
 	'page_link_footer' => 'Pied de Page',
 	'page_link_none' => 'Aucun lien de Page',
+	'page_permissions' => 'Page Permissions',
+	'can_view_page' => 'Can view page:',
+	'redirect_page' => 'Redirect page?',
+	'redirect_link' => 'Redirect link',
 	
 	// Admin forum page
 	'labels' => 'Labels de sujet',
@@ -170,9 +176,9 @@ $admin_language = array(
 	'parent_forum' => 'Parent Forum',
 	'has_no_parent' => 'Has no parent',
 	'forum_permissions' => 'Forum Permissions',
-	'can_view_forum' => 'Can view forum:',
-	'can_create_topic' => 'Can create topic:',
-	'can_post_reply' => 'Can post reply:',
+	'can_view_forum' => 'Can view forum',
+	'can_create_topic' => 'Can create topic',
+	'can_post_reply' => 'Can post reply',
 	'display_threads_as_news' => 'Display threads as news on front page?',
 	'input_forum_title' => 'Input a forum title.',
 	'input_forum_description' => 'Input a forum description.',
@@ -180,6 +186,8 @@ $admin_language = array(
 	'forum_description_minimum' => 'The forum description must be a minimum of 2 characters.',
 	'forum_name_maximum' => 'The forum name must be a maximum of 150 characters.',
 	'forum_description_maximum' => 'The forum description must be a maximum of 255 characters.',
+	'forum_type_forum' => 'Discussion Forum',
+	'forum_type_category' => 'Category',
 	
 	// Admin Users and Groups page
 	'users' => 'Utilisateurs',
@@ -198,6 +206,7 @@ $admin_language = array(
 	'ip' => 'IP:',
 	'other_actions' => 'Autres actions:',
 	'disable_avatar' => 'Désactiver l\'avatar',
+	'enable_avatar' => 'Enable avatar',
 	'confirm_user_deletion' => 'Êtes-vous sûr de vouloir supprimer cet utilisateur: {x} ?', // Don't replace "{x}"
 	'groups' => 'Groupes',
 	'group' => 'Groupe',
@@ -517,6 +526,8 @@ $user_language = array(
 	'post_unliked' => 'Post unliked.',
 	'no_posts' => 'No posts.',
 	'last_5_posts' => 'Last 5 posts',
+	'follow' => 'Follow',
+	'unfollow' => 'Unfollow',
 	
 	// Staff applications
 	'staff_application' => 'Staff Application',
@@ -586,6 +597,7 @@ $general_language = array(
 	// Homepage
 	'news' => 'News',
 	'social' => 'Social',
+	'join' => 'Join',
 	
 	// General terms
 	'submit' => 'Submit',
@@ -713,7 +725,12 @@ $forum_language = array(
 	'no_users_online' => 'Il n\'y a pas d\'utilisateurs connectés.',
 	
 	// Search
-	'search_error' => 'Merci d\'entrer une recherche comprise entre 1 et 32 caractères de longueur.'
+	'search_error' => 'Merci d\'entrer une recherche comprise entre 1 et 32 caractères de longueur.',
+	
+	//Share on a social-media.
+	'sm-share' => 'Partager',
+	'sm-share-facebook' => 'Partager sur Facebook',
+	'sm-share-twitter' => 'Partager sur Twitter',
 );
 /*
  *  Emails
@@ -752,6 +769,13 @@ $table_language = array(
 	'page_x_of_y' => 'Affichage de la page _PAGE_ sur _PAGES_', // Don't replace "_PAGE_" or "_PAGES_"
 	'no_records' => 'Pas d\'enregistrement disponible',
 	'filtered' => '(filtré _MAX_ enregistrements totaux)' // Don't replace "_MAX_"
+);
+
+/*
+ *  API language
+ */
+$api_language = array(
+	'register' => 'Complete Registration'
 );
  
 ?>

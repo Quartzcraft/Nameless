@@ -10,8 +10,8 @@
  *  Linguagem: Português-BR
  *  Por: www.craftalizar.com
  *  Tradutor: Douglas Teles
- *  Versão: 0.1.5
- *  Última revisão: 10/05/2016
+ *  Versão: 0.2.0
+ *  Última revisão: 08/07/2016
  */
  
 /*
@@ -68,6 +68,8 @@ $admin_language = array(
 	'use_gmail_help' => 'Somente requerido se a função PHP Mail estiver desativa. Se você optar por não usar o Gmail, SMTP será usado. De qualquer maneira você precisará editar o core/email.php.',
 	'enable_mail_verification' => 'Ativar a verificação da conta de e-mail?',
 	'enable_email_verification_help' => 'Ativando esse recurso, novos usuários precisarão verificar via e-mail para completarem seus cadastrados.',
+	'explain_email_settings' => 'O seguinte é necessário se a opção "Usar função PHP mail()" está <strong>desativada</strong>. Você poderá encontrar a documentação dessa configuração <a href="https://github.com/NamelessMC/Nameless/wiki/Setting-up-Gmail-or-SMTP-with-Nameless" target="_blank">na nossa Wiki</a>.',
+	'email_config_not_writable' => 'Seu arquivo <strong>core/email.php</strong> não é gravável. Por favor, verifique as permissões.',
 	'pages' => 'Páginas',
 	'enable_or_disable_pages' => 'Ative ou desativas suas páginas aqui.',
 	'enable' => 'Ativar',
@@ -139,6 +141,10 @@ $admin_language = array(
 	'page_link_more' => '"Mais" dropdown',
 	'page_link_footer' => 'Rodapé da página',
 	'page_link_none' => 'Não adicionar link',
+	'page_permissions' => 'Permissões da Página',
+	'can_view_page' => 'Pode visualizar a página:',
+	'redirect_page' => 'Redirecionar página?',
+	'redirect_link' => 'Redirecionar link',
 	
 	// Admin forum page
 	'labels' => 'Rótulos de tópico',
@@ -171,9 +177,9 @@ $admin_language = array(
 	'parent_forum' => 'Fórum Vinculado',
 	'has_no_parent' => 'Não possui vínculo',
 	'forum_permissions' => 'Permissões do Fórum',
-	'can_view_forum' => 'Podem ver o fórum:',
-	'can_create_topic' => 'Podem criar o tópico:',
-	'can_post_reply' => 'Podem postar resposta:',
+	'can_view_forum' => 'Podem ver o fórum',
+	'can_create_topic' => 'Podem criar o tópico',
+	'can_post_reply' => 'Podem postar resposta',
 	'display_threads_as_news' => 'Exibir tópicos como notícia na primeira página?',
 	'input_forum_title' => 'Escreva o título do fórum.',
 	'input_forum_description' => 'Escreva a descrição do fórum.',
@@ -181,6 +187,8 @@ $admin_language = array(
 	'forum_description_minimum' => 'A descrição do fórum deve ser um mínimo de 2 caracteres.',
 	'forum_name_maximum' => 'O nome do fórum deve ser um máximo de 150 caracteres.',
 	'forum_description_maximum' => 'A descrição do fórum deve ser um máximo de 255 caracteres.',
+	'forum_type_forum' => 'Fórum de Discussão',
+	'forum_type_category' => 'Categoria',
 	
 	// Admin Users and Groups page
 	'users' => 'Usuários',
@@ -193,12 +201,13 @@ $admin_language = array(
 	'update_mc_name' => 'Atualizar Nome Minecraft',
 	'reset_password' => 'Redefinir senha',
 	'punish_user' => 'Punir Usuário',
-	'delete_user' => 'Exluir Usuário',
+	'delete_user' => 'Excluir Usuário',
 	'minecraft_uuid' => 'Minecraft UUID',
 	'ip_address' => 'Endereço IP',
 	'ip' => 'IP:',
 	'other_actions' => 'Outras Ações:',
 	'disable_avatar' => 'Desativar avatar',
+	'enable_avatar' => 'Enable avatar',
 	'confirm_user_deletion' => 'Você tem certeza de que deseja excluir o usuário {x}?', // Don't replace "{x}"
 	'groups' => 'Grupos',
 	'group' => 'Grupo',
@@ -233,7 +242,7 @@ $admin_language = array(
 	'force_avatars' => 'Forçar uso de avatares Minecraft?',
 	'uuid_linking' => 'Ativar vinculação UUID?',
 	'use_plugin_help' => 'Usando o plugin você terá a sincronização com o ranking, cadastro in-game e envios de tickets.',
-	'uuid_linking_help' => 'Se desativado, os usuários cadastrados não terão vinculo com suas UUIDs. É altamente recomendado que você deixe essa opção ativada.',
+	'uuid_linking_help' => 'Se desativado, os usuários cadastrados não terão vínculo com suas UUIDs. É altamente recomendado que você deixe essa opção ativada.',
 	'plugin_settings' => 'Configurações do Plugin',
 	'confirm_api_regen' => 'Você tem certeza de que deseja gerar uma nova API key?',
 	'servers' => 'Servidores',
@@ -333,8 +342,8 @@ $admin_language = array(
  */
 $navbar_language = array(
 	// Text only
-	'home' => 'Home',
-	'play' => 'Play',
+	'home' => 'Início',
+	'play' => 'Jogar',
 	'forum' => 'Fórum',
 	'more' => 'Mais',
 	'staff_apps' => 'Recrutamentos',
@@ -373,8 +382,8 @@ $user_language = array(
 	'incorrect_details' => 'Informações incorretas',
 	'remember_me' => 'Lembrar-me',
 	'forgot_password' => 'Esqueci minha senha',
-	'must_input_username' => 'Você precisa iformar um usuário.',
-	'must_input_password' => 'Você precisa iformar uma senha.',
+	'must_input_username' => 'Você precisa informar um usuário.',
+	'must_input_password' => 'Você precisa informar uma senha.',
 	'inactive_account' => 'Sua conta atualmente está inativa. Você solicitou um reset de senha?',
 	'account_banned' => 'Sua conta está banida.',
 	'successfully_logged_out' => 'Você se deslogou com sucesso. Até mais!',
@@ -431,7 +440,7 @@ $user_language = array(
 	'delete_message' => 'Excluir Mensagem',
 	'confirm_message_deletion' => 'Você tem certeza de que deseja excluir essa mensagem?',
 	
-	// Profile settings
+        // Profile settings
 	'display_name' => 'Nome de exibição',
 	'upload_an_avatar' => 'Enviar um avatar (somente .jpg, .png ou .gif):',
 	'use_gravatar' => 'Usar Gravatar?',
@@ -444,19 +453,19 @@ $user_language = array(
 	'update_minecraft_name_help' => 'Isto irá atualizar o seu nome de usuário no site para o seu atual nome de usuário Minecraft. Você só pode executar esta ação uma vez a cada 30 dias.',
 	'unable_to_update_mcname' => 'Não foi possível atualizar seu nome de usuário Minecraft',
 	'display_age_on_profile' => 'Exibir idade no perfil?',
-	'two_factor_authentication' => 'Two Factor Authentication',
-	'enable_tfa' => 'Enable Two Factor Authentication',
-	'tfa_type' => 'Two Factor Authentication type:',
-	'authenticator_app' => 'Authentication App',
-	'tfa_scan_code' => 'Please scan the following code within your authentication app:',
-	'tfa_code' => 'If your device does not have a camera, or you are unable to scan the QR code, please input the following code:',
-	'tfa_enter_code' => 'Please enter the code displaying within your authentication app:',
-	'invalid_tfa' => 'Invalid code, please try again.',
-	'tfa_successful' => 'Two factor authentication set up successfully. You will need to authenticate every time you log in from now on.',
-	'confirm_tfa_disable' => 'Are you sure you wish to disable two factor authentication?',
-	'tfa_disabled' => 'Two factor authentication disabled.',
-	'tfa_enter_email_code' => 'We have sent you a code within an email for verification. Please enter the code now:',
-	'tfa_email_contents' => 'A login attempt has been made to your account. If this was you, please input the following two factor authentication code when asked to do so. If this was not you, you can ignore this email, however a password reset is advised. The code is only valid for 10 minutes.',
+	'two_factor_authentication' => 'Dupla Autenticação',
+	'enable_tfa' => 'Ativar Dupla Autenticação',
+	'tfa_type' => 'Tipo da Autenticação Dupla:',
+	'authenticator_app' => 'App de Autenticação',
+	'tfa_scan_code' => 'Por favor verificar o seguinte código no seu aplicativo de autenticação:',
+	'tfa_code' => 'Se o seu dispositivo não tiver uma câmera, ou você não consegue ler o código QR, por favor insira o seguinte código:',
+	'tfa_enter_code' => 'Por favor entre com o código em exibição com o seu aplicativo de autenticação:',
+	'invalid_tfa' => 'Código inválido, tente novamente.',
+	'tfa_successful' => 'Dupla Autenticação configurada com êxito. Você vai precisar se autenticar toda vez que você entrar a partir de agora em diante.',
+	'confirm_tfa_disable' => 'Você tem certeza que deseja desativar a dupla autenticação?',
+	'tfa_disabled' => 'Dupla autenticação desativada.',
+	'tfa_enter_email_code' => 'Nós enviamos um código com um email para verificação. Por favor digite o código agora:',
+	'tfa_email_contents' => 'Uma tentativa de login foi feita em sua conta. Se foi você, por favor informe a dupla autenticação quando for solicitada. Se não foi você, você pode ignorar este e-mail, no entanto, uma redefinição de senha é aconselhada. O código é válido apenas por 10 minutos.',
 	
 	// Alerts
 	'viewing_unread_alerts' => 'Visualizando alertas não lidos. Alterar para <a href="/user/alerts/?view=read"><span class="label label-success">lido</span></a>.',
@@ -506,7 +515,7 @@ $user_language = array(
 	'following' => 'SEGUINDO',
 	'followers' => 'SEGUIDORES',
 	'display_location' => 'De {x}.', // Don't replace {x}, which will be the user's location
-	'display_age_and_location' => '{x}, de {y}.', // Don't replace {x} which will be the user's age, and {y} which will be their location
+	'display_age_and_location' => '{x} anos, de {y}.', // Don't replace {x} which will be the user's age, and {y} which will be their location
 	'write_on_user_profile' => 'Escreva algo no perfil de {x}...', // Don't replace {x}
 	'write_on_own_profile' => 'Escreva alguma coisa no seu perfil...',
 	'profile_posts' => 'Postagens no Perfil',
@@ -521,6 +530,8 @@ $user_language = array(
 	'post_unliked' => 'Postagens reprovadas.',
 	'no_posts' => 'Nenhuma postagem.',
 	'last_5_posts' => 'Últimas 5 Postagens',
+	'follow' => 'Follow',
+	'unfollow' => 'Unfollow',
 	
 	// Staff applications
 	'staff_application' => 'Entre na Staff',
@@ -538,7 +549,7 @@ $mod_language = array(
 	'mod_cp' => 'ModCP',
 	'overview' => 'Visão Geral',
 	'reports' => 'Relatórios',
-	'punishments' => 'Punimentos',
+	'punishments' => 'Punições',
 	'staff_applications' => 'Recrutamentos para Staff',
 	
 	// Punishments
@@ -564,7 +575,7 @@ $mod_language = array(
 	'user_reported' => 'Usuário Reportado',
 	'type' => 'Tipo',
 	'updated_by' => 'Atualizado Por',
-	'forum_post' => 'Forum Post',
+	'forum_post' => 'Postagem do Fórum',
 	'user_profile' => 'Perfil de Usuário',
 	'comment_added' => 'Comentário Add.',
 	'new_report_submitted_alert' => 'Novo parecer enviado por {x} em relação ao usuário {y}', // Don't replace "{x}" or "{y}"
@@ -592,6 +603,7 @@ $general_language = array(
 	// Homepage
 	'news' => 'Notícias',
 	'social' => 'Social',
+	'join' => 'Entrar',
 	
 	// General terms
 	'submit' => 'Enviar',
@@ -609,7 +621,7 @@ $general_language = array(
 	'error' => 'Error',
 	'view' => 'Ver',
 	'info' => 'Info',
-	'next' => 'Next',
+	'next' => 'Próximo',
 	
 	// Play page
 	'connect_with' => 'Junte-se aos nossos jogadores: {x}', // Don't replace {x}
@@ -625,7 +637,7 @@ $general_language = array(
 	// Other
 	'page_loaded_in' => 'Página carregada em {x}s', // Don't replace {x}; 's' stands for 'seconds'
 	'none' => 'Nenhum',
-	'404' => 'Desculpe, nós não encontramos esssa página.'
+	'404' => 'Desculpe, nós não encontramos essa página.'
 );
 
 /* 
@@ -633,7 +645,7 @@ $general_language = array(
  */
 $forum_language = array(
 	// Latest discussions view
-	'forums' => 'Forums',
+	'forums' => 'Fóruns',
 	'discussion' => 'Tópicos',
 	'stats' => 'Estatísticas',
 	'last_reply' => 'Última Resposta',
@@ -720,7 +732,12 @@ $forum_language = array(
 	'no_users_online' => 'Não há usuários on-line.',
 	
 	// Search
-	'search_error' => 'Por favor, informe de 1 à 32 caracteres para pesquisar.'
+	'search_error' => 'Por favor, informe de 1 à 32 caracteres para pesquisar.',
+	
+	//Share on a social-media.
+	'sm-share' => 'Compartilhar',
+	'sm-share-facebook' => 'Compartilhar no Facebook',
+	'sm-share-twitter' => 'Compartilhar no Twitter',
 );
 
 /*
@@ -761,6 +778,13 @@ $table_language = array(
 	'page_x_of_y' => 'Exibindo página _PAGE_ de _PAGES_', // Don't replace "_PAGE_" or "_PAGES_"
 	'no_records' => 'Nenhum registro disponível',
 	'filtered' => '(filtrado de _MAX_ registros totais)' // Don't replace "_MAX_"
+);
+ 
+/*
+ *  API language
+ */
+$api_language = array(
+	'register' => 'Cadastro Completo'
 );
  
 ?>

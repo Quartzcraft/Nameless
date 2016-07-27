@@ -7,6 +7,20 @@
  */
 
 require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTML Purifier
+
+// Can the user view the page?
+if(!$user->canViewPage($page_id)){
+	echo '<script>window.location.replace(\'/\');</script>';
+	die();
+}
+
+// Redirect page?
+if(isset($redirect_page)){
+	if(!is_null($redirect_page) && $redirect_page != ''){
+		echo '<script>window.location.replace(\'' . $redirect_page . '\');</script>';
+		die();
+	} else die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +31,7 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTML Purif
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Samerton">
+    <meta name="theme-color" content="#454545" />
 	<?php if(isset($custom_meta)){ echo $custom_meta; } ?>
 	
 	<?php

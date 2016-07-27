@@ -95,15 +95,20 @@ if($user->data()->id === $post_editing[0]->post_creator || $user->canViewMCP($us
 			
 			if($validation->passed()){
 				try {
-					// update post content
+					// Update post content
 					$queries->update("posts", $post_id, array(
 						'post_content' => htmlspecialchars(Input::get('content'))
 					));
+					
 					if(isset($edit_title)){
-						// update title
+						// Update title and label
+						// Check a label has been set..
+						if(!isset($_POST['topic_label'])) $topic_label = 0;
+						else $topic_label = $_POST['topic_label'];
+						
 						$queries->update("topics", $topic_id, array(
 							'topic_title' => htmlspecialchars_decode(Input::get('title')),
-							'label' => Input::get('topic_label')
+							'label' => $topic_label
 						));
 					}
 					Session::flash('success_post', '<div class="alert alert-info alert-dismissable"> <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>Post edited.</div>');
@@ -226,6 +231,7 @@ $token = Token::generate();
 					'  <textarea name="content" id="editor" rows="3"></textarea><br />' . PHP_EOL .
 					'  <input type="hidden" name="token" value="' . $token . '">' . PHP_EOL .
 					'  <input type="submit" class="btn btn-primary" value="' . $general_language['submit'] . '">' . PHP_EOL .
+					'  <a class="btn btn-danger" href="/forum/view_topic/?tid=' . $topic_id . '" onclick="return confirm(\'' . $forum_language['confirm_cancellation'] . '\')">' . $general_language['cancel'] . '</a>' . PHP_EOL .
 					'</form>';
 	
 	$smarty->assign('FORM_CONTENT', $form_content);

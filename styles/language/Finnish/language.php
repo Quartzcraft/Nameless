@@ -64,6 +64,8 @@ $admin_language = array(
 	'use_gmail_help' => 'Saatavilla vain, jos PHP_mail() funktio ei ole käytössä. Jos et valitse käytettäväksi Gmailia, käytetään SMTP. Joka tapauksessa tämä tarvitsee konfiguroinnin core/email.php.',
 	'enable_mail_verification' => 'Ota sähköpostivarmistus käyttöön?',
 	'enable_email_verification_help' => 'Tämä lähettää sähköpostin käyttäjän valitsemaan sähköpostiin, joka tulee vahvistaa suorittaakseen rekisteröinnin kokonaan.',
+	'explain_email_settings' => 'The following is required if the "Use PHP mail() function" option is <strong>disabled</strong>. You can find documentation on these settings <a href="https://github.com/NamelessMC/Nameless/wiki/Setting-up-Gmail-or-SMTP-with-Nameless" target="_blank">on our wiki</a>.',
+	'email_config_not_writable' => 'Your <strong>core/email.php</strong> file is not writable. Please check file permissions.',
 	'pages' => 'Sivut',
 	'enable_or_disable_pages' => 'Ota käyttöön/poista käytöstä sivut täällä.',
 	'enable' => 'Ota käyttöön',
@@ -135,6 +137,10 @@ $admin_language = array(
 	'page_link_more' => 'Navigaatiopalkki "Lisää" pudotusvalikko',
 	'page_link_footer' => 'Sivun alatunniste',
 	'page_link_none' => 'Sivulla ei ole linkkiä',
+	'page_permissions' => 'Page Permissions',
+	'can_view_page' => 'Can view page:',
+	'redirect_page' => 'Redirect page?',
+	'redirect_link' => 'Redirect link',
 	
 	// Admin forum page
 	'labels' => 'Aiheleima',
@@ -167,9 +173,9 @@ $admin_language = array(
 	'parent_forum' => 'Äitifoorumi',
 	'has_no_parent' => 'Foorumilla ei ole äitifoorumia',
 	'forum_permissions' => 'Foorumin oikeudet',
-	'can_view_forum' => 'Voi katsoa foorumia:',
-	'can_create_topic' => 'Voi luoda viestiketjun:',
-	'can_post_reply' => 'Voi lähettää vastauksia:',
+	'can_view_forum' => 'Voi katsoa foorumia',
+	'can_create_topic' => 'Voi luoda viestiketjun',
+	'can_post_reply' => 'Voi lähettää vastauksia',
 	'display_threads_as_news' => 'Näytetäänkö ketjut etusivun Uutisosiossa?',
 	'input_forum_title' => 'Kirjoita foorumin otsikko.',
 	'input_forum_description' => 'Kirjoita foorumin kuvaus.',
@@ -177,6 +183,8 @@ $admin_language = array(
 	'forum_description_minimum' => 'Foorumin kuvaus pitää olla vähintään 2 merkkiä pitkä.',
 	'forum_name_maximum' => 'Foorumin nimi voi olla korkeintaan 150 merkkiä.',
 	'forum_description_maximum' => 'Foorumin kuvaus voi olla korkeintaan 255 merkkiä.',
+	'forum_type_forum' => 'Discussion Forum',
+	'forum_type_category' => 'Category',
 	
 	// Admin Users and Groups page
 	'users' => 'Käyttäjät',
@@ -195,6 +203,7 @@ $admin_language = array(
 	'ip' => 'IP:',
 	'other_actions' => 'Muut toiminnot:',
 	'disable_avatar' => 'Ota avatar pois käytöstä',
+	'enable_avatar' => 'Enable avatar',
 	'confirm_user_deletion' => 'Oletko varma, että haluat poistaa käyttäjän {x}?', // Don't replace "{x}"
 	'groups' => 'Käyttäjäryhmät',
 	'group' => 'Ryhmä',
@@ -517,6 +526,8 @@ $user_language = array(
 	'post_unliked' => 'Post unliked.',
 	'no_posts' => 'No posts.',
 	'last_5_posts' => 'Last 5 posts',
+	'follow' => 'Follow',
+	'unfollow' => 'Unfollow',
 	
 	// Staff applications
 	'staff_application' => 'Ylläpitohakemus',
@@ -588,6 +599,7 @@ $general_language = array(
 	// Homepage
 	'news' => 'Uutiset',
 	'social' => 'Sosiaaliset',
+	'join' => 'Join',
 	
 	// General terms
 	'submit' => 'Lähetä',
@@ -716,7 +728,12 @@ $forum_language = array(
 	'no_users_online' => 'Käyttäjiä ei ole paikalla.',
 	
 	// Search
-	'search_error' => 'Laita hakukyselyyn 1-20 merkkiä.'
+	'search_error' => 'Laita hakukyselyyn 1-20 merkkiä.',
+	
+	//Share on a social-media.
+	'sm-share' => 'Jakaa',
+	'sm-share-facebook' => 'Jaa Facebookissa',
+	'sm-share-twitter' => 'Jaa Twitterissä',
 );
 
 /*
@@ -757,6 +774,13 @@ $table_language = array(
 	'page_x_of_y' => 'Näytetään sivu _PAGE_  _PAGES_:sta sivusta', // Don't replace "_PAGE_" or "_PAGES_"
 	'no_records' => 'Ei saatavilla',
 	'filtered' => '(suodatettiin _MAX_ tuloksesta yhteensä)' // Don't replace "_MAX_"
+);
+ 
+/*
+ *  API language
+ */
+$api_language = array(
+	'register' => 'Complete Registration'
 );
  
 ?>

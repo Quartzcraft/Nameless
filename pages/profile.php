@@ -67,6 +67,12 @@ if(isset($profile)){
 		$mcname = htmlspecialchars($profile_user[0]->mcname);
 	}
 
+	// Redirect to fix pagination if URL does not end in /
+	if(substr($_SERVER['REQUEST_URI'], -1) !== '/' && !strpos($_SERVER['REQUEST_URI'], '?')){
+		echo '<script data-cfasync="false">window.location.replace(\'/profile/' . $mcname . '/\');</script>';
+		die();
+	}
+	
 	if($user->isLoggedIn()){
 		if(!isset($_POST['action'])){
 			if(isset($_POST['AddFriend'])) {
@@ -264,6 +270,7 @@ if(isset($profile)){
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="User profile page &bull; <?php echo $sitename; ?>">
       <meta name="author" content="Samerton">
+      <meta name="theme-color" content="#454545" />
       <?php if(isset($custom_meta)){ echo $custom_meta; } ?>
 
 	  <?php
@@ -318,9 +325,9 @@ if(isset($profile)){
 			  <br />
 			  <?php
 			    // Follower system or friend system?
-				$followers = $queries->getWhere('settings', array('name', '=', 'followers'));
-				$followers = $followers[0]->value;
-				if($followers == '1'){
+				$use_followers = $queries->getWhere('settings', array('name', '=', 'followers'));
+				$use_followers = $use_followers[0]->value;
+				if($use_followers == '1'){
 					// Followers
 					if($exists == true) $followers = $user->listFollowers($profile_user[0]->id);
 				?>
@@ -448,7 +455,7 @@ if(isset($profile)){
                            echo '
                            <form style="display: inline"; method="post">
                            <input type="hidden" name="token" value="' . $token . '">
-                           <input style="margin-top: -5px;" type="submit" class="btn btn-success" name="AddFriend" value="' . $user_language['add_friend'] . '">
+                           <input style="margin-top: -5px;" type="submit" class="btn btn-success" name="AddFriend" value="' . ($use_followers == '1' ? $user_language['follow'] : $user_language['add_friend']) . '">
                            </form>
                            <a style="margin-top: -5px;" href="/user/messaging/?action=new&uid=' . $profile_user[0]->id . '" class="btn btn-primary">' . $user_language['send_message'] . '</a>
                            ';
@@ -460,7 +467,7 @@ if(isset($profile)){
                            echo '
                            <form style="display: inline"; method="post">
                            <input type="hidden" name="token" value="' . $token . '">
-                           <input style="margin-top: -5px;" type="submit" class="btn btn-danger" name="RemoveFriend" value="' . $user_language['remove_friend'] . '">
+                           <input style="margin-top: -5px;" type="submit" class="btn btn-danger" name="RemoveFriend" value="' . ($use_followers == '1' ? $user_language['unfollow'] : $user_language['remove_friend']) . '">
                            </form>
                            <a style="margin-top: -5px;" href="/user/messaging/?action=new&uid=' . $profile_user[0]->id . '" class="btn btn-primary">' . $user_language['send_message'] . '</a>
                            ';

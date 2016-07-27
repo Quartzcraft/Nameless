@@ -30,11 +30,11 @@ $adm_page = "users";
 // Custom usernames?
 $displaynames = $queries->getWhere("settings", array("name", "=", "displaynames"));
 $displaynames = $displaynames[0]->value;
-		
+
 // Is UUID linking enabled?
 $uuid_linking = $queries->getWhere('settings', array('name', '=', 'uuid_linking'));
 $uuid_linking = $uuid_linking[0]->value;
-			  
+
 require('core/includes/password.php'); // Password compat library
 require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifier
 
@@ -183,12 +183,12 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 								if($displaynames == "true"){
 									$to_validation['mcname'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20
 									);
 									$to_validation['username'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20,
 										'unique' => 'users'
 									);
@@ -196,7 +196,7 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 								} else {
 									$to_validation['username'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20,
 										'unique' => 'users'
 									);
@@ -206,12 +206,12 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 								if($displaynames == "true"){
 									$to_validation['mcname'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20
 									);
 									$to_validation['username'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20,
 										'unique' => 'users'
 									);
@@ -219,7 +219,7 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 								} else {
 									$to_validation['username'] = array(
 										'required' => true,
-										'min' => 4,
+										'min' => 3,
 										'max' => 20,
 										'unique' => 'users'
 									);
@@ -469,19 +469,19 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 									if($displaynames == "true"){
 										$to_validation['MCUsername'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$to_validation['username'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$mcname = htmlspecialchars(Input::get('MCUsername'));
 									} else {
 										$to_validation['username'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$mcname = htmlspecialchars(Input::get('username'));
@@ -490,19 +490,19 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 									if($displaynames == "true"){
 										$to_validation['MCUsername'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$to_validation['username'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$mcname = htmlspecialchars(Input::get('MCUsername'));
 									} else {
 										$to_validation['username'] = array(
 											'required' => true,
-											'min' => 4,
+											'min' => 3,
 											'max' => 20
 										);
 										$mcname = htmlspecialchars(Input::get('username'));
@@ -618,6 +618,14 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 								} catch(Exception $e) {
 									die($e->getMessage());
 								}
+							} else if(Input::get('action') == "avatar_enable"){ 
+								try {
+									$queries->update('users', $_GET["user"], array(
+										"has_avatar" => "1"
+									));
+								} catch(Exception $e) {
+									die($e->getMessage());
+								}
 							}
 						}
 					}
@@ -726,6 +734,7 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 							</select> 
 						  </div>
 						  <?php if($_GET['user'] == 1){ ?>
+						  <input type="hidden" name="group" value="2">
 						  <div class="alert alert-warning">
 						    <?php echo $admin_language['cant_modify_root_user']; ?>
 						  </div>
@@ -741,14 +750,31 @@ require('core/includes/htmlpurifier/HTMLPurifier.standalone.php'); // HTMLPurifi
 						$avatar_enabled = $avatar_enabled[0]->value;
 
 						if($avatar_enabled === "1"){
-						?>
-						<strong><?php echo $admin_language['other_actions']; ?></strong><br />
-						<form role="form" action="" method="post">
-						  <input type="hidden" name="token" value="<?php echo $token; ?>">
-						  <input type="hidden" name="action" value="avatar_disable">
-						  <input type="submit" value="<?php echo $admin_language['disable_avatar']; ?>" class="btn btn-danger">
-						</form>
-						<?php 
+							// Does the user have an avatar enabled?
+							$avatar_enabled = $queries->getWhere('users', array('id', '=', $_GET['user']));
+							$avatar_enabled = $avatar_enabled[0]->has_avatar;
+
+							if($avatar_enabled === "1"){ // Yes
+							?>
+							<strong><?php echo $admin_language['other_actions']; ?></strong><br />
+							<form role="form" action="" method="post">
+							  <input type="hidden" name="token" value="<?php echo $token; ?>">
+							  <input type="hidden" name="action" value="avatar_disable">
+							  <input type="submit" value="<?php echo $admin_language['disable_avatar']; ?>" class="btn btn-danger">
+							</form>
+							<?php 
+							
+							// Doesn't have an avatar enabled, but does one exist? If so, let the admin choose to enable it
+							} else if (count(glob(__DIR__ . '/../../avatars/' . $_GET["user"] . '.*'))) { 
+							?>
+							<strong><?php echo $admin_language['other_actions']; ?></strong><br />
+							<form role="form" action="" method="post">
+							  <input type="hidden" name="token" value="<?php echo $token; ?>">
+							  <input type="hidden" name="action" value="avatar_enable">
+							  <input type="submit" value="<?php echo $admin_language['enable_avatar']; ?>" class="btn btn-success">
+							</form>
+							<?php
+							}
 						}
 					}
 				}

@@ -64,6 +64,8 @@ $admin_language = array(
 	'use_gmail_help' => 'Only available if the PHP mail function is disabled. If you choose not to use Gmail, SMTP will be used. Either way, this will need configuring in core/email.php.',
 	'enable_mail_verification' => 'Enable email account verification?',
 	'enable_email_verification_help' => 'Having this enabled will ask newly registered users to verify their account via email before completing registration.',
+	'explain_email_settings' => 'The following is required if the "Use PHP mail() function" option is <strong>disabled</strong>. You can find documentation on these settings <a href="https://github.com/NamelessMC/Nameless/wiki/Setting-up-Gmail-or-SMTP-with-Nameless" target="_blank">on our wiki</a>.',
+	'email_config_not_writable' => 'Your <strong>core/email.php</strong> file is not writable. Please check file permissions.',
 	'pages' => 'Pages',
 	'enable_or_disable_pages' => 'Enable or disable pages here.',
 	'enable' => 'Enable',
@@ -135,6 +137,10 @@ $admin_language = array(
 	'page_link_more' => 'Navbar "More" dropdown',
 	'page_link_footer' => 'Page footer',
 	'page_link_none' => 'No page link',
+	'page_permissions' => 'Page Permissions',
+	'can_view_page' => 'Can view page:',
+	'redirect_page' => 'Redirect page?',
+	'redirect_link' => 'Redirect link',
 	
 	// Admin forum page
 	'labels' => 'Topic Labels',
@@ -167,9 +173,9 @@ $admin_language = array(
 	'parent_forum' => 'Parent Forum',
 	'has_no_parent' => 'Has no parent',
 	'forum_permissions' => 'Forum Permissions',
-	'can_view_forum' => 'Can view forum:',
-	'can_create_topic' => 'Can create topic:',
-	'can_post_reply' => 'Can post reply:',
+	'can_view_forum' => 'Can view forum',
+	'can_create_topic' => 'Can create topic',
+	'can_post_reply' => 'Can post reply',
 	'display_threads_as_news' => 'Display threads as news on front page?',
 	'input_forum_title' => 'Input a forum title.',
 	'input_forum_description' => 'Input a forum description.',
@@ -177,6 +183,8 @@ $admin_language = array(
 	'forum_description_minimum' => 'The forum description must be a minimum of 2 characters.',
 	'forum_name_maximum' => 'The forum name must be a maximum of 150 characters.',
 	'forum_description_maximum' => 'The forum description must be a maximum of 255 characters.',
+	'forum_type_forum' => 'Discussion Forum',
+	'forum_type_category' => 'Category',
 	
 	// Admin Users and Groups page
 	'users' => 'Users',
@@ -195,6 +203,7 @@ $admin_language = array(
 	'ip' => 'IP:',
 	'other_actions' => 'Other actions:',
 	'disable_avatar' => 'Disable avatar',
+	'enable_avatar' => 'Enable avatar',
 	'confirm_user_deletion' => 'Are you sure you want to delete the user {x}?', // Don't replace "{x}"
 	'groups' => 'Groups',
 	'group' => 'Group',
@@ -515,6 +524,8 @@ $user_language = array(
 	'post_unliked' => 'Post unliked.',
 	'no_posts' => 'No posts.',
 	'last_5_posts' => 'Last 5 posts',
+	'follow' => 'Follow',
+	'unfollow' => 'Unfollow',
 	
 	// Staff applications
 	'staff_application' => 'Staff Application',
@@ -586,6 +597,7 @@ $general_language = array(
 	// Homepage
 	'news' => 'Novinky',
 	'social' => 'Social',
+	'join' => 'Join',
 	
 	// General terms
 	'submit' => 'Odelsat',
@@ -714,7 +726,12 @@ $forum_language = array(
 	'no_users_online' => 'There are no users online.',
 	
 	// Search
-	'search_error' => 'Please input a search query between 1 and 32 characters long.'
+	'search_error' => 'Please input a search query between 1 and 32 characters long.',
+	
+	// Podíl na sociálním-médií.
+	'sm-share' => 'Share',
+	'sm-share-facebook' => 'Podělte se na Facebooku',
+	'sm-share-twitter'=> 'Podělte se na Twitteru',
 );
 
 /*
@@ -755,6 +772,13 @@ $table_language = array(
 	'page_x_of_y' => 'stránka _PAGE_ z _PAGES_', // Don't replace "_PAGE_" or "_PAGES_"
 	'no_records' => 'No records available',
 	'filtered' => '(filtered from _MAX_ total records)' // Don't replace "_MAX_"
+);
+
+/*
+ *  API language
+ */
+$api_language = array(
+	'register' => 'Complete Registration'
 );
  
 ?>

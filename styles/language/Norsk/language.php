@@ -64,6 +64,8 @@ $admin_language = array(
 	'use_gmail_help' => 'Bare tilgjengelig hvis PHP-postfunksjonen er deaktivert. Hvis du velger å ikke bruke Gmail, vil SMTP brukes. Uansett må dette konfigurere i core/email.php.',
 	'enable_mail_verification' => 'Aktiver e-postkonto verifisering?',
 	'enable_email_verification_help' => 'Å ha denne aktivert vil be nyregistrerte brukere å verifisere sin konto via e-post før brukeren er fullført registreringen.',
+	'explain_email_settings' => 'The following is required if the "Use PHP mail() function" option is <strong>disabled</strong>. You can find documentation on these settings <a href="https://github.com/NamelessMC/Nameless/wiki/Setting-up-Gmail-or-SMTP-with-Nameless" target="_blank">on our wiki</a>.',
+	'email_config_not_writable' => 'Your <strong>core/email.php</strong> file is not writable. Please check file permissions.',
 	'pages' => 'Sider',
 	'enable_or_disable_pages' => 'Aktivere eller deaktivere sider her.',
 	'enable' => 'Aktiver',
@@ -95,7 +97,7 @@ $admin_language = array(
 	'voice_server_port' => 'Port (vanligvis 10 011)',
 	'virtual_port' => 'Virtual Port (vanligvis 9987)',
 	'permissions' => 'Tillatelser:',
-	'view_applications' => 'Se søkenader?',
+	'view_applications' => 'Se søknader?',
 	'accept_reject_applications' => 'Aksepter / avslå søknader?',
 	'questions' => 'Spørsmåler:',
 	'question' => 'Spørsmål',
@@ -135,6 +137,10 @@ $admin_language = array(
 	'page_link_more' => 'Navbar "Mer" dropdown',
 	'page_link_footer' => 'Side footer',
 	'page_link_none' => 'Ingen lenke',
+	'page_permissions' => 'Side Tillatelser',
+	'can_view_page' => 'Kan vise side:',
+	'redirect_page' => 'Omdirigerings side?',
+	'redirect_link' => 'Omdirigere lenke',
 	
 	// Admin forum page
 	'labels' => 'Emne etiketter',
@@ -167,16 +173,18 @@ $admin_language = array(
 	'parent_forum' => 'Overforum',
 	'has_no_parent' => 'Har ingen kategori',
 	'forum_permissions' => 'Forum Tillatelser',
-	'can_view_forum' => 'Kan vise forum:',
-	'can_create_topic' => 'Kan lage emne:',
-	'can_post_reply' => 'Kan legge inn svar:',
-	'display_threads_as_news' => 'Vis emner som nyheter på forsiden?',
+	'can_view_forum' => 'Kan vise forum',
+	'can_create_topic' => 'Kan lage emne',
+	'can_post_reply' => 'Kan legge inn svar',
+	'display_threads_as_news' => 'Vis tråder som nyheter på forsiden?',
 	'input_forum_title' => 'Skriv inn forum tittel',
 	'input_forum_description' => 'Skriv inn forum beskrivelse.',
 	'forum_name_minimum' => 'Forumet Navnet må være minst 2 tegn.',
 	'forum_description_minimum' => 'Forumet Beskrivelsen må være minst 2 tegn.',
 	'forum_name_maximum' => 'Forumet Navnet må være maksimalt 150 tegn.',
 	'forum_description_maximum' => 'Forumet Beskrivelsen må være maksimalt 255 tegn',
+	'forum_type_forum' => 'Diskusjon Forum',
+	'forum_type_category' => 'Kategori',
 	
 	// Admin Users and Groups page
 	'users' => 'Brukere',
@@ -195,6 +203,7 @@ $admin_language = array(
 	'ip' => 'IP:',
 	'other_actions' => 'Andre handlinger:',
 	'disable_avatar' => 'Deaktiver avatar',
+	'enable_avatar' => 'Enable avatar',
 	'confirm_user_deletion' => 'Er du sikker på at du vil slette brukeren {x}?', // Don't replace "{x}"
 	'groups' => 'Grupper',
 	'group' => 'Gruppe',
@@ -328,6 +337,7 @@ $admin_language = array(
  *  Navbar
  */
 $navbar_language = array(
+	// Text only
 	'home' => 'Hjem',
 	'play' => 'Spill',
 	'forum' => 'Forum',
@@ -516,6 +526,8 @@ $user_language = array(
 	'post_unliked' => 'Innlegg unliked.',
 	'no_posts' => 'Ingen innlegg.',
 	'last_5_posts' => 'Last 5 posts',
+	'follow' => 'Follow',
+	'unfollow' => 'Unfollow',
 	
 	// Staff applications
 	'staff_application' => 'Staff Application',
@@ -534,7 +546,7 @@ $mod_language = array(
 	'overview' => 'Oversikt',
 	'reports' => 'Reports',
 	'punishments' => 'Straff',
-	'staff_applications' => 'Staff Søkenader',
+	'staff_applications' => 'Staff Søknader',
 	
 	// Punishments
 	'ban' => 'Utesteng',
@@ -566,7 +578,7 @@ $mod_language = array(
 	
 	// Staff applications
 	'comment_error' => 'Sørg for din kommentar er mellom 2 og 2048 tegn.',
-	'viewing_open_applications' => 'Viser <span class="label label-info">Åpne</span> søkenader. Bytt til <a href="/mod/applications/?view=accepted"><span class="label label-success">aksepterte</span></a> eller <a href="/mod/applications/?view=declined"><span class="label label-danger">Avslått</span></a>.',
+	'viewing_open_applications' => 'Viser <span class="label label-info">Åpne</span> søknader. Bytt til <a href="/mod/applications/?view=accepted"><span class="label label-success">aksepterte</span></a> eller <a href="/mod/applications/?view=declined"><span class="label label-danger">Avslått</span></a>.',
 	'viewing_accepted_applications' => 'Viser <span class="label label-success">akseptert</span> applications. Bytt til <a href="/mod/applications/"><span class="label label-info">Åpne</span></a> eller <a href="/mod/applications/?view=declined"><span class="label label-danger">avslått</span></a>.',
 	'viewing_declined_applications' => 'Viser <span class="label label-danger">Avslått</span> applications. Bytt til <a href="/mod/applications/"><span class="label label-info">Åpne</span></a> eller <a href="/mod/applications/?view=accepted"><span class="label label-success">akseptert</span></a>.',
 	'time_applied' => 'tid Applied',
@@ -577,7 +589,7 @@ $mod_language = array(
 	'declined' => 'avvist',
 	'accept' => 'Aksepterer',
 	'decline' => 'Avslå',
-	'new_app_submitted_alert' => 'Ny søkenad innsendt av {x}' // Don't replace "{x}"
+	'new_app_submitted_alert' => 'Ny søknad innsendt av {x}' // Don't replace "{x}"
 );
 
 /* 
@@ -587,6 +599,7 @@ $general_language = array(
 	// Homepage
 	'news' => 'Nyheter',
 	'social' => 'Sosial',
+	'join' => 'Join',
 	
 	// General terms
 	'submit' => 'Send inn',
@@ -656,16 +669,16 @@ $forum_language = array(
 	'topic_locked' => 'Emne Låst',
 	'new_reply' => 'Ny Svar',
 	'mod_actions' => 'Mod Handlinger',
-	'lock_thread' => 'Look Thread',
-	'unlock_thread' => 'Unlokk Thread',
-	'merge_thread' => 'Flett Thread',
-	'delete_thread' => 'Slett Thread',
-	'confirm_thread_deletion' => 'Er du sikker på at du vil slette denne thread?',
-	'move_thread' => 'Flytt Thread',
-	'sticky_thread' => 'Klistret Thread',
+	'lock_thread' => 'Lås Tråd',
+	'unlock_thread' => 'Åpne Tråd',
+	'merge_thread' => 'Flett Tråd',
+	'delete_thread' => 'Slett Tråd',
+	'confirm_thread_deletion' => 'Er du sikker på at du vil slette denne tråden?',
+	'move_thread' => 'Flytt Tråd',
+	'sticky_thread' => 'Klistret Tråd',
 	'report_post' => 'Rapporter Innlegg',
 	'quote_post' => 'Svar',
-	'delete_post' => 'Slett Innleggt',
+	'delete_post' => 'Slett Innlegg',
 	'edit_post' => 'Rediger Innlegg',
 	'reputation' => 'rykte',
 	'confirm_post_deletion' => 'Er du sikker på at du vil slette dette innlegget?',
@@ -685,14 +698,14 @@ $forum_language = array(
 	'editing_post' => 'Redigerer innlegg',
 	
 	// Sticky threads
-	'thread_is_' => 'Thread er ',
-	'now_sticky' => 'Nå er en klisstrert thread',
-	'no_longer_sticky' => 'ikke lenger en klistret thread',
+	'thread_is_' => 'Tråd er ',
+	'now_sticky' => 'Nå er en klisstrert tråd',
+	'no_longer_sticky' => 'ikke lenger en klistret tråd',
 	
 	// Create topic
 	'topic_created' => 'Emne opprettet.',
 	'creating_topic_in_' => 'Opprette tema i forumet ',
-	'thread_title' => 'Thread Tittel',
+	'thread_title' => ' Tråd Tittel',
 	'confirm_cancellation' => 'Er du sikker?',
 	'label' => 'Merkelapp',
 	
@@ -715,7 +728,12 @@ $forum_language = array(
 	'no_users_online' => 'Det er ingen brukere i online',
 	
 	// Search
-	'search_error' => 'Vennligst skriv inn et søk på mellom 1 og 32 tegn.'
+	'search_error' => 'Vennligst skriv inn et søk på mellom 1 og 32 tegn.',
+	
+	//Share on a social-media.
+	'sm-share' => 'Del',
+	'sm-share-facebook' => 'Del på Facebook',
+	'sm-share-twitter' => 'Del på Twitter',
 );
 
 /*
@@ -756,6 +774,13 @@ $table_language = array(
 	'page_x_of_y' => 'Viser side _PAGE_ av _PAGES_', // Don't replace "_PAGE_" or "_PAGES_"
 	'no_records' => 'Ingen poster tilgjengelig',
 	'filtered' => '(filtrert fra _MAX_ total rekord)' // Don't replace "_MAX_"
+);
+ 
+/*
+ *  API language
+ */
+$api_language = array(
+	'register' => 'Registrering Fullført'
 );
  
 ?>

@@ -64,6 +64,8 @@ $admin_language = array(
 	'use_gmail_help' => 'K dispozícii je iba ak je funkcia php mail vypnutá. Pokiaľ sa rozhodnete gmail nepoužívať, bude použitý SMTP. Tak či onak, to bude vyžadovať zodpovedajúce konfigúrácie: core/email.php.',
 	'enable_mail_verification' => 'Povoliť overovanie účtu cez e-mail?',
 	'enable_email_verification_help' => 'Pokiaľ bude toto povolené, bude požadované od novo registrovaných uživateľov overenie e-mailu pred dokončením registracie.',
+	'explain_email_settings' => 'The following is required if the "Use PHP mail() function" option is <strong>disabled</strong>. You can find documentation on these settings <a href="https://github.com/NamelessMC/Nameless/wiki/Setting-up-Gmail-or-SMTP-with-Nameless" target="_blank">on our wiki</a>.',
+	'email_config_not_writable' => 'Your <strong>core/email.php</strong> file is not writable. Please check file permissions.',
 	'pages' => 'Pages',
 	'enable_or_disable_pages' => 'Enable or disable pages here.',
 	'enable' => 'Enable',
@@ -135,6 +137,10 @@ $admin_language = array(
 	'page_link_more' => '"Viac" rozbaľovacie sa hlavné menu',
 	'page_link_footer' => 'Päta stránky',
 	'page_link_none' => 'Žiadny odkaz na stránku na webe',
+	'page_permissions' => 'Page Permissions',
+	'can_view_page' => 'Can view page:',
+	'redirect_page' => 'Redirect page?',
+	'redirect_link' => 'Redirect link',
 	
 	// Admin forum page
 	'labels' => 'Štítky témy',
@@ -167,9 +173,9 @@ $admin_language = array(
 	'parent_forum' => 'Parent Forum',
 	'has_no_parent' => 'Has no parent',
 	'forum_permissions' => 'Permissie fóra',
-	'can_view_forum' => 'Môže vidieť fórum:',
-	'can_create_topic' => 'Môže vytvoriť príspevok:',
-	'can_post_reply' => 'Môže odpovedať v príspevku:',
+	'can_view_forum' => 'Môže vidieť fórum',
+	'can_create_topic' => 'Môže vytvoriť príspevok',
+	'can_post_reply' => 'Môže odpovedať v príspevku',
 	'display_threads_as_news' => 'Zobraziť príspevok medzi novinkami?',
 	'input_forum_title' => 'Input a forum title.',
 	'input_forum_description' => 'Input a forum description.',
@@ -177,6 +183,8 @@ $admin_language = array(
 	'forum_description_minimum' => 'The forum description must be a minimum of 2 characters.',
 	'forum_name_maximum' => 'The forum name must be a maximum of 150 characters.',
 	'forum_description_maximum' => 'The forum description must be a maximum of 255 characters.',
+	'forum_type_forum' => 'Discussion Forum',
+	'forum_type_category' => 'Category',
 	
 	// Admin Users and Groups page
 	'users' => 'Uživatelia',
@@ -195,6 +203,7 @@ $admin_language = array(
 	'ip' => 'IP:',
 	'other_actions' => 'Ďalšie akcie:',
 	'disable_avatar' => 'Vypnuť avatary',
+	'enable_avatar' => 'Enable avatar',
 	'confirm_user_deletion' => 'Vážne chceš vymazať účet {x}?', // Don't replace "{x}"
 	'groups' => 'Skupiny',
 	'group' => 'Skupina',
@@ -515,6 +524,8 @@ $user_language = array(
 	'post_unliked' => 'Post unliked.',
 	'no_posts' => 'No posts.',
 	'last_5_posts' => 'Last 5 posts',
+	'follow' => 'Follow',
+	'unfollow' => 'Unfollow',
 	
 	// Staff applications
 	'staff_application' => 'StaffApp',
@@ -586,6 +597,7 @@ $general_language = array(
 	// Homepage
 	'news' => 'Novinky',
 	'social' => 'Social',
+	'join' => 'Join',
 	
 	// General terms
 	'submit' => 'Odoslať',
@@ -714,7 +726,12 @@ $forum_language = array(
 	'no_users_online' => 'Žiadny uživateľ není online.',
 	
 	// Search
-	'search_error' => 'Zadajte prosím vyhľadávací dotaz medzi 1 az 32 znakov.'
+	'search_error' => 'Zadajte prosím vyhľadávací dotaz medzi 1 az 32 znakov.',
+	
+	//Share on a social-media.
+	'sm-share' => 'podiel',
+	'sm-share-facebook' => 'Zdielať na Facebook-u',
+	'sm-share-twitter' => 'Zdieľať na Twitter',
 );
 
 /*
@@ -755,6 +772,13 @@ $table_language = array(
 	'page_x_of_y' => 'stránka _PAGE_ z _PAGES_', // Don't replace "_PAGE_" or "_PAGES_"
 	'no_records' => 'K dispozícii niesu žiadné záznami',
 	'filtered' => '(filtered from _MAX_ total records)' // Don't replace "_MAX_"
+);
+ 
+/*
+ *  API language
+ */
+$api_language = array(
+	'register' => 'Complete Registration'
 );
  
 ?>

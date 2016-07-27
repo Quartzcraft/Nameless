@@ -65,56 +65,58 @@ $admin_language = array(
 	'use_php_mail_help' => 'Recomendado: activar. Si su sitio envia correos electrónicos, por favor, desactívelo y edite core/email.php con la configuración del corero.',
 	'use_gmail' => '¿Usar Gmail para enviar correo?',
 	'use_gmail_help' => 'Sólo disponible si la función de correo de PHP está desactivada. Si elije no usar Gmail, se usará el protocolo SMTP. De todas formas, edite la configuración en core/email.php.',
-	'enable_mail_verification' => 'Habilitar verificación de cuenta vía e-mail?',
+	'enable_mail_verification' => '¿Habilitar verificación de cuenta vía e-mail?',
 	'enable_email_verification_help' => 'Habilitando esto hara que los usuarios nuevos tengan que verificar su cuenta vía email para completar el registro.',
+	'explain_email_settings' => 'La siguiente es requerida si "Usar PHP mail() funcion" opción esta <strong>desactivada</strong>. Puede encontrar documentación sobre estos ajustes en <a href="https://github.com/NamelessMC/Nameless/wiki/Setting-up-Gmail-or-SMTP-with-Nameless" target="_blank">nuestra wiki</a>.',
+	'email_config_not_writable' => 'Tu <strong>core/email.php</strong> archivo no se puede editar. Por favor, mira los permisos del archivo.',
 	'pages' => 'Páginas',
 	'enable_or_disable_pages' => 'Páginas para Habilitar/Deshabilitar aquí.',
 	'enable' => 'Habilitar',
 	'disable' => 'Deshabilitar',
 	'maintenance_mode' => 'Foro en modo mantención',
 	'forum_in_maintenance' => 'Foro en mantención.',
-	'unable_to_update_settings' => 'Unable to update settings. Please ensure no fields are left empty.',
-	'editing_google_analytics_module' => 'Editing Google Analytics module',
-	'tracking_code' => 'Tracking Code',
-	'tracking_code_help' => 'Insert the tracking code for Google Analytics here, including the surrounding script tags.',
-	'google_analytics_help' => 'See <a href="https://support.google.com/analytics/answer/1008080?hl=en#GA" target="_blank">this guide</a> for more information, following steps 1 to 3.',
-	'social_media_links' => 'Social Media Links',
+	'unable_to_update_settings' => 'No se puede actualizar la configuración. Por favor asegúrese de que ningún campo está vacío.',
+	'editing_google_analytics_module' => 'Editando Google Analytics module',
+	'tracking_code' => 'Codigo de localización',
+	'tracking_code_help' => 'Inserta el codigo de localización de  Google Analytics aquí, incluyendo los tag scripts que lo rodean.',
+	'google_analytics_help' => 'Ver <a href="https://support.google.com/analytics/answer/1008080?hl=en#GA" target="_blank">esta guia</a> para mas información, sigue los pasos del 1 al 3.',
+	'social_media_links' => 'Links de Redes Sociales',
 	'youtube_url' => 'YouTube URL',
 	'twitter_url' => 'Twitter URL',
 	'twitter_widget_id' => 'Twitter Widget ID',
 	'google_plus_url' => 'Google Plus URL',
 	'facebook_url' => 'Facebook URL',
-	'registration' => 'Registration',
-	'registration_warning' => 'Having this module disabled will also disable new members registering on your site.',
-	'google_recaptcha' => 'Enable Google reCAPTCHA',
+	'registration' => 'Registración',
+	'registration_warning' => 'Después de haber desactivado este módulo también se inhabilitará el que nuevos miembros se registren en su sitio.',
+	'google_recaptcha' => 'Habilitar Google reCAPTCHA',
 	'recaptcha_site_key' => 'reCAPTCHA Site Key',
 	'recaptcha_secret_key' => 'reCAPTCHA Secret Key',
-	'registration_terms_and_conditions' => 'Registration Terms and Conditions',
-	'voice_server_module' => 'Voice Server Module',
-	'only_works_with_teamspeak' => 'This module currently only works with TeamSpeak and Discord',
-	'discord_id' => 'Discord Server ID',
-	'voice_server_help' => 'Please enter the details for the ServerQuery user',
-	'ip_without_port' => 'IP (without port)',
-	'voice_server_port' => 'Port (usually 10011)',
-	'virtual_port' => 'Virtual Port (usually 9987)',
-	'permissions' => 'Permissions:',
-	'view_applications' => 'View Applications?',
-	'accept_reject_applications' => 'Accept/Reject Applications?',
-	'questions' => 'Questions:',
-	'question' => 'Question',
-	'type' => 'Type',
-	'options' => 'Options',
-	'options_help' => 'Each option on a new line; can be left empty (dropdowns only)',
+	'registration_terms_and_conditions' => 'Terminos y condiciones del registro',
+	'voice_server_module' => 'Módulo de servidor con voz',
+	'only_works_with_teamspeak' => 'Este módulo actualmente sólo funciona con TeamSpeak y Discord',
+	'discord_id' => 'ID del servidor en Discord',
+	'voice_server_help' => 'Por favor, introduzca los detalles de el usuario ServerQuery',
+	'ip_without_port' => 'IP (Sin puerto)',
+	'voice_server_port' => 'Port (generalmente 10011)',
+	'virtual_port' => 'Virtual Port (generalmente 9987)',
+	'permissions' => 'Permisos:',
+	'view_applications' => '¿Ver aplicaciones?',
+	'accept_reject_applications' => '¿Aceptar / rechazar las solicitudes?',
+	'questions' => 'Preguntas:',
+	'question' => 'Pregunta',
+	'type' => 'Escribe',
+	'options' => 'Opciones',
+	'options_help' => 'Cada opción en una nueva linea; se puede dejar vacio (Sólo menús desplegables)',
 	'no_questions' => 'No questions added yet.',
-	'new_question' => 'New Question',
-	'editing_question' => 'Editing Question',
-	'delete_question' => 'Delete Question',
-	'dropdown' => 'Dropdown',
-	'text' => 'Text',
-	'textarea' => 'Text Area',
-	'question_deleted' => 'Question Deleted',
-	'use_followers' => 'Use followers?',
-	'use_followers_help' => 'If disabled, the friends system will be used.',
+	'new_question' => 'Nueva Pregunta',
+	'editing_question' => 'Editando Pregunta',
+	'delete_question' => 'Borrar Pregunta',
+	'dropdown' => 'Menú desplegable',
+	'text' => 'Texto',
+	'textarea' => 'Área de texto',
+	'question_deleted' => 'Pregunta borrada',
+	'use_followers' => '¿Utilizar seguidores?',
+	'use_followers_help' => 'Si esta desactivado, el sistema de amigos será utilizado.',
 	
 	// Admin custom pages page
 	'click_on_page_to_edit' => 'Seleccione una página para editarla.',
@@ -137,7 +139,11 @@ $admin_language = array(
 	'page_link_navbar' => 'Barra de navegación',
 	'page_link_more' => 'Barra de navegación con menú "Mas"',
 	'page_link_footer' => 'Pie de página',
-	'page_link_none' => 'No page link',
+	'page_link_none' => 'No hay un link de la pagina',
+	'page_permissions' => 'Permisos de página',
+	'can_view_page' => 'Puede ver la pagina:',
+	'redirect_page' => '¿Página redirigida?',
+	'redirect_link' => 'Link de redirección',
 	
 	// Admin forum page
 	'labels' => 'Etiquetas de tema',
@@ -170,16 +176,18 @@ $admin_language = array(
 	'parent_forum' => 'Foro padre',
 	'has_no_parent' => 'No tiene padre',
 	'forum_permissions' => 'Permisos del foro',
-	'can_view_forum' => 'Puede ver el foro:',
-	'can_create_topic' => 'Crear mensajes en:',
-	'can_post_reply' => 'Puede responder:',
+	'can_view_forum' => 'Puede ver el foro',
+	'can_create_topic' => 'Puede crear mensajes en',
+	'can_post_reply' => 'Puede responder',
 	'display_threads_as_news' => '¿Mostrar hilos y noticias en la página principal?',
-	'input_forum_title' => 'Input a forum title.',
-	'input_forum_description' => 'Input a forum description.',
-	'forum_name_minimum' => 'The forum name must be a minimum of 2 characters.',
-	'forum_description_minimum' => 'The forum description must be a minimum of 2 characters.',
-	'forum_name_maximum' => 'The forum name must be a maximum of 150 characters.',
-	'forum_description_maximum' => 'The forum description must be a maximum of 255 characters.',
+	'input_forum_title' => 'Introducir un titulo para el foro.',
+	'input_forum_description' => 'Introducir una descripción para el foro.',
+	'forum_name_minimum' => 'El nombre del foro debe tener un mínimo de 2 caracteres.',
+	'forum_description_minimum' => 'La descripción del foro debe tener un mínimo de 2 caracteres.',
+	'forum_name_maximum' => 'El titulo del foro debe tener al menos un máximo de 255 caracteres.',
+	'forum_description_maximum' => 'La descripción del foro debe tener un máximo de 255 caracteres.',
+	'forum_type_forum' => 'Foro de discusion',
+	'forum_type_category' => 'Categoria',
 	
 	// Admin Users and Groups page
 	'users' => 'Usuarios',
@@ -198,6 +206,7 @@ $admin_language = array(
 	'ip' => 'IP:',
 	'other_actions' => 'Otras acciones:',
 	'disable_avatar' => 'Desactivar avatar',
+	'enable_avatar' => 'Enable avatar',
 	'confirm_user_deletion' => '¿Seguro que quiere borrar el usuario {x}?', // Don't replace "{x}"
 	'groups' => 'Grupos',
 	'group' => 'Grupo',
@@ -217,14 +226,14 @@ $admin_language = array(
 	'group_staff' => '¿Es un grupo de administración?',
 	'group_modcp' => '¿Puede el grupo ver el panel de moderación?',
 	'group_admincp' => '¿Puede el grupo ver AdminCP?',
-	'group_name_required' => 'You must insert a group name.',
-	'group_name_minimum' => 'The group name must be a minimum of 2 characters.',
-	'group_name_maximum' => 'The group name must be a maximum of 20 characters.',
-	'html_maximum' => 'The group HTML must be a maximum of 1024 characters.',
-	'select_user_group' => 'The user must be in a group.',
-	'uuid_max_32' => 'The UUID must be a maximum of 32 characters.',
-	'cant_delete_root_user' => 'Can\'t delete the root user!',
-	'cant_modify_root_user' => 'Can\'t modify the root user\'s group.',
+	'group_name_required' => 'Debe insertar un nombre de grupo .',
+	'group_name_minimum' => 'El nombre del grupo debe tener un minimo de 2 caracteres.',
+	'group_name_maximum' => 'El nombre del grupo debe tener un máximo de 20 caracteres.',
+	'html_maximum' => 'El grupo HTML debe tener un máximo de 1024 caracteres.',
+	'select_user_group' => 'El usuario tiene que estar en un grupo.',
+	'uuid_max_32' => 'El UUID debe tener un maximo de 32 caracteres.',
+	'cant_delete_root_user' => 'No se puede eliminar el usuario principal!',
+	'cant_modify_root_user' => 'No se puede modificar el usuario principal o su grupos.',
 	
 	// Admin Minecraft page
 	'minecraft_settings' => 'Configuración de Minecraft',
@@ -249,7 +258,7 @@ $admin_language = array(
 	'server_ip_numeric' => 'IP del Servidor (con puerto) (usar IP numérica)',
 	'server_ip_numeric_help' => 'Esta es la IP que será consultada, porfavor usa la IP numérica. No se mostrará a los usuarios.',
 	'show_on_play_page' => '¿Mostar en la página de Juegos?',
-	'pre_17' => 'Anterior a la versión 1.7 de Minecraft?',
+	'pre_17' => '¿Anterior a la versión 1.7 de Minecraft?',
 	'server_name' => 'Nombre del servidor',
 	'invalid_server_id' => 'ID del servidor errónea',
 	'show_players' => '¿Mostrar la lista de jugadores en la página de Juegos?',
@@ -262,15 +271,15 @@ $admin_language = array(
 	'port' => 'Puerto:',
 	'viewing_error' => 'Ver Error',
 	'confirm_error_deletion' => '¿Seguro que quiere eliminar este error?',
-	'display_server_status' => 'Mostrar modulo de estado del servidor?',
-	'server_name_required' => 'You must insert a server name.',
-	'server_ip_required' => 'You must insert the server\'s IP.',
-	'server_name_minimum' => 'The server name must be a minimum of 2 characters.',
-	'server_ip_minimum' => 'The server IP must be a minimum of 2 characters.',
-	'server_name_maximum' => 'The server name must be a maximum of 20 characters.',
-	'server_ip_maximum' => 'The server IP must be a maximum of 64 characters.',
-	'purge_errors' => 'Purge Errors',
-	'confirm_purge_errors' => 'Are you sure you want to purge all query errors?',
+	'display_server_status' => '¿Mostrar modulo de estado del servidor?',
+	'server_name_required' => 'Debes ingresar el nombre del servidor.',
+	'server_ip_required' => 'Debes ingresar la IP del servidor/s.',
+	'server_name_minimum' => 'El nombre del servidor debe tener un minimo de 2 caracteres.',
+	'server_ip_minimum' => 'La IP del servidor debe tener un minimo de 2 caracteres.',
+	'server_name_maximum' => 'El nombre del servidor debe tener un máximo de 20 caracteres.',
+	'server_ip_maximum' => 'La IP del servidor debe tener un máximo de 64 caracteres.',
+	'purge_errors' => 'Arreglar Errores',
+	'confirm_purge_errors' => '¿Está seguro de que desea limpiar todos los errores?',
 	
 	// Admin Themes, Templates and Addons
 	'themes' => 'Temas',
@@ -318,13 +327,13 @@ $admin_language = array(
 	'confirm_reset_website' => '¿Seguro que quiere reiniciar la configuración del sitio web?',
 	
 	// Admin Update page
-	'installation_up_to_date' => 'Your installation is up to date.',
-	'update_check_error' => 'Unable to check for updates. Please try again later.',
-	'new_update_available' => 'A new update is available.',
-	'your_version' => 'Your version:',
-	'new_version' => 'New version:',
-	'download' => 'Download',
-	'update_warning' => 'Warning: Ensure you have downloaded the package and uploaded the contained files first!'
+	'installation_up_to_date' => 'Su instalación esta en fecha.',
+	'update_check_error' => 'Imposible buscar actualizaciones. Por favor, prueba luego.',
+	'new_update_available' => 'Una nueva actualización esta disponible.',
+	'your_version' => 'Tu versión:',
+	'new_version' => 'Nueva versión:',
+	'download' => 'Descargar',
+	'update_warning' => 'Advertencia: Asegúrese de que ha descargado el paquete y subido los archivos primero!'
 );
 
 /*
@@ -395,7 +404,7 @@ $user_language = array(
 	'password_minimum_6' => 'Tu contraseña debe ser de mínimo 6 carácteres.',
 	'password_maximum_30' => 'Tu contraseña debe ser de máximo 30 carácteres.',
 	'passwords_dont_match' => 'Tus contraseñas no coinciden.',
-	'username_mcname_email_exists' => 'Tu usuario, usuario de minecraft o email ya existe. Ya te has creado una cuenta?',
+	'username_mcname_email_exists' => 'Tu usuario, usuario de minecraft o email ya existe. ¿Ya te has creado una cuenta?',
 	'invalid_mcname' => 'Tu usuario de Minecraft no es válido.',
 	'mcname_lookup_error' => 'Hubo un error contactando a los servidores de Mojang. Por favor intenta más tarde.',
 	'signature_maximum_900' => 'Su firma debe ser de un máximo de 900 caracteres.',
@@ -501,8 +510,8 @@ $user_language = array(
 	'find_a_user' => 'Encuentra un usuario',
 	'user_not_following' => 'Este usuario no sigue a nadie.',
 	'user_no_followers' => 'Este usuario no tiene seguidores.',
-	'following' => 'FOLLOWING',
-	'followers' => 'FOLLOWERS',
+	'following' => 'SIGUIENDO',
+	'followers' => 'SEGUIDORES',
 	'display_location' => 'De {x}.', // Don't replace {x}, which will be the user's location
 	'display_age_and_location' => '{x}, De {y}.', // Don't replace {x} which will be the user's age, and {y} which will be their location
 	'write_on_user_profile' => 'Escribir algo en el perfil de {x} ...', // Don't replace {x}
@@ -512,13 +521,15 @@ $user_language = array(
 	'invalid_wall_post' => 'Publicación en el muro no válida. Asegúrese de que su mensaje es de entre 2 y 2.048 caracteres.',
 	'about' => 'Acerca de',
 	'reply' => 'Respuesta',
-	'x_likes' => '{x} likes', // Don't replace {x}
-	'likes' => 'Likes',
-	'no_likes' => 'No likes.',
-	'post_liked' => 'Post liked.',
-	'post_unliked' => 'Post unliked.',
-	'no_posts' => 'No posts.',
-	'last_5_posts' => 'Last 5 posts',
+	'x_likes' => '{x} Me gustas', // Don't replace {x}
+	'likes' => 'Me gustas',
+	'no_likes' => 'Sin me gustas.',
+	'post_liked' => 'Mensajes asociados.',
+	'post_unliked' => 'Mensajes no asociados.',
+	'no_posts' => 'No hay mensajes.',
+	'last_5_posts' => 'Últimos 5 mensajes.',
+	'follow' => 'Follow',
+	'unfollow' => 'Unfollow',
 	
 	// Staff applications
 	'staff_application' => 'Solicitud de staff',
@@ -590,6 +601,7 @@ $general_language = array(
 	// Homepage
 	'news' => 'Noticias',
 	'social' => 'Social',
+	'join' => 'Unirse',
 	
 	// General terms
 	'submit' => 'Enviar',
@@ -607,7 +619,7 @@ $general_language = array(
 	'error' => 'Error',
 	'view' => 'Ver',
 	'info' => 'Información',
-	'next' => 'Next',
+	'next' => 'Siguiente',
 	
 	// Play page
 	'connect_with' => 'Conéctate al servidor desde la IP <b>{x}</b>', // Don't replace {x}
@@ -714,11 +726,16 @@ $forum_language = array(
 	// Other
 	'forum_error' => 'Lo sentimos, pero no se encontró en los foros o los temas.',
 	'are_you_logged_in' => '¿Se ha registrado?',
-	'online_users' => 'Online Users',
-	'no_users_online' => 'There are no users online.',
+	'online_users' => 'Usuarios en linea',
+	'no_users_online' => 'No hay usuarios en línea.',
 	
 	// Search
-	'search_error' => 'Por favor, introduce una búsqueda entre 1 y 32 caracteres.'
+	'search_error' => 'Por favor, introduce una búsqueda entre 1 y 32 caracteres.',
+	
+	//Share on a social-media.
+	'sm-share' => 'Compartir',
+	'sm-share-facebook' => 'Compartir en Facebook',
+	'sm-share-twitter' => 'Compartir en Twitter',
 );
 
 /*
@@ -759,6 +776,13 @@ $table_language = array(
 	'page_x_of_y' => 'Mostrando página _PAGE_ de _PAGES_', // Don't replace "_PAGE_" or "_PAGES_"
 	'no_records' => 'No hay entradas',
 	'filtered' => '(entradas filtrado un total de _MAX_)' // Don't replace "_MAX_"
+);
+
+/*
+ *  API language
+ */
+$api_language = array(
+	'register' => 'Registro completo'
 );
 
 ?>

@@ -28,13 +28,13 @@ if($user->isLoggedIn()){
 ?>
 <ul class="nav nav-pills">
   <li<?php if(!isset($_GET['view'])){ ?> class="active"<?php } ?>><a href="/admin/addons/?action=edit&amp;addon=Donate">Settings</a></li>
-  <li<?php if(isset($_GET['view']) && $_GET['view'] == 'mcstock'){ ?> class="active"<?php } ?>><a href="/admin/addons/?action=edit&amp;addon=Donate&amp;view=mcstock">MCStock</a></li>
+  <!--<li<?php //if(isset($_GET['view']) && $_GET['view'] == 'mcstock'){ ?> class="active"<?php //} ?>><a href="/admin/addons/?action=edit&amp;addon=Donate&amp;view=mcstock">MCStock</a></li>-->
 </ul>
 
 <?php if(!isset($_GET['view']) && !isset($_GET['do'])){ ?>  
 <h3>Addon: Donate</h3>
 Author: Samerton<br />
-Version: 1.0.1<br />
+Version: 1.0.2<br />
 Description: Integrate a donation store with your website<br />
 
 <h3>Donation Store</h3>
@@ -156,9 +156,9 @@ if(empty($donation_settings)){
     <label class="btn btn-primary<?php if($donation_settings[0]->value == 'mm'){ ?> active<?php } ?>">
 	  <input type="radio" name="store_type" id="InputStoreType2" value="mm" autocomplete="off"<?php if($donation_settings[0]->value == 'mm'){ ?> checked<?php } ?>> Minecraft Market
     </label>
-    <label class="btn btn-primary<?php if($donation_settings[0]->value == 'mcs'){ ?> active<?php } ?>">
-	  <input type="radio" name="store_type" id="InputStoreType3" value="mcs" autocomplete="off"<?php if($donation_settings[0]->value == 'mcs'){ ?> checked<?php } ?>> MCStock
-    </label>
+    <!--<label class="btn btn-primary<?php //if($donation_settings[0]->value == 'mcs'){ ?> active<?php //} ?>">
+	  <input type="radio" name="store_type" id="InputStoreType3" value="mcs" autocomplete="off"<?php //if($donation_settings[0]->value == 'mcs'){ ?> checked<?php //} ?>> MCStock
+    </label>-->
   </div>
   <br /><br />
   <div class="form-group">
@@ -193,6 +193,7 @@ if(empty($donation_settings)){
 	  <option value="0" <?php if($donation_settings[5]->value == '0'){ echo ' selected="selected"'; } ?>>$</option>
 	  <option value="1" <?php if($donation_settings[5]->value == '1'){ echo ' selected="selected"'; } ?>>£</option>
 	  <option value="2" <?php if($donation_settings[5]->value == '2'){ echo ' selected="selected"'; } ?>>€</option>
+	  <option value="3" <?php if($donation_settings[5]->value == '3'){ echo ' selected="selected"'; } ?>>R$</option>
 	</select>
   </div>
   <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
