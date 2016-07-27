@@ -59,13 +59,16 @@ Upcoming addons (these will need to be downloaded separately):
 * @nfell2009
 * @computerwizjared
 * @mentimjojo
-* @jesseke55
+* @Headhunterzpw
 * @MistriHD
 * @fetch404
 * @MrHodge
 * @oliverdunk
 * @talkahe
 * @IMmmKI
+* @ConnorLinfoot
+* @RobinMCNetwork
+* @PugaBear
 
 **[NamelessMC Website](http://namelessmc.github.io/)**
 * @Samerton
@@ -82,9 +85,12 @@ Upcoming addons (these will need to be downloaded separately):
 * Norsk: @partydragen
 * Slovak: @Marki35
 * French: @CreaModZ
-* Dutch: Sander Jochems, @Azoraqua, @jesseke55 and @melerpe
+* Dutch: Sander Jochems, @Azoraqua, @Headhunterzpw and @melerpe
 * Finnish: -kakara-
 * Portuguese: @dgateles
 
 **NamelessMC On Spigot**
 * Resource: @Saphiria
+
+## IRC
+\#NamelessMC on irc.spi.gt
